@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f36b45">
+  <title>เที่ยวไทย｜旅遊泰文單字卡</title>
+  <style>
+    :root{--ink:#342721;--muted:#88746b;--paper:#fffaf1;--card:#fff;--orange:#f36b45;--orange2:#ff976f;--green:#4f8067;--line:#eadfd2;--shadow:0 18px 50px rgba(95,58,40,.12)}
+    *{box-sizing:border-box} body{margin:0;color:var(--ink);background:radial-gradient(circle at 80% -10%,#ffd9b9 0,transparent 34%),linear-gradient(160deg,#fffaf1,#f7eee4);font-family:system-ui,-apple-system,"Noto Sans TC","Noto Sans Thai",sans-serif;min-height:100vh}
+    button,select{font:inherit} button{cursor:pointer}.app{width:min(720px,100%);margin:auto;padding:24px 18px 48px}.top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.eyebrow{color:var(--orange);font-weight:800;letter-spacing:.12em;font-size:.75rem}.title{margin:.25rem 0 0;font-size:clamp(1.65rem,6vw,2.5rem);line-height:1.1}.subtitle{margin:.5rem 0;color:var(--muted);font-size:.92rem}.streak{min-width:80px;padding:10px 12px;background:#fff7e2;border:1px solid #f2d7a6;border-radius:16px;text-align:center;font-size:.75rem}.streak b{display:block;font-size:1.1rem;color:#b86b25}.progress-line{height:8px;background:#eadfd2;border-radius:9px;overflow:hidden;margin:20px 0 10px}.progress-line i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),#ffbc69);width:0;transition:.3s}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem}.chips{display:flex;gap:8px;overflow:auto;padding:15px 1px 12px;scrollbar-width:none}.chip{border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--muted);padding:8px 13px;border-radius:99px;white-space:nowrap}.chip.on{color:white;background:var(--orange);border-color:var(--orange)}
+    .card{position:relative;background:var(--card);border:1px solid rgba(234,223,210,.8);border-radius:28px;box-shadow:var(--shadow);min-height:395px;padding:30px 24px 24px;text-align:center;overflow:hidden}.card:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:#fff0e5;right:-65px;top:-70px}.category{position:relative;display:inline-flex;padding:6px 11px;background:#f7eee7;color:#9a6c56;border-radius:99px;font-weight:700;font-size:.75rem}.thai{position:relative;margin:30px 0 8px;font-size:clamp(2rem,9vw,3.35rem);font-weight:800;line-height:1.28}.roman{color:var(--orange);font-weight:750;font-size:1.05rem}.meaning{font-size:1.18rem;margin:9px 0 17px}.audio-row{display:flex;justify-content:center;gap:9px}.audio{border:0;background:#fff3ec;color:#b94c2d;border-radius:13px;padding:9px 13px;font-weight:700}.hint{color:var(--muted);font-size:.78rem;margin:18px 0 0}.detail{display:none;margin-top:19px;padding-top:18px;border-top:1px dashed var(--line);text-align:left}.card.open .detail{display:block}.example-thai{font-weight:800;font-size:1.22rem}.example-roman{color:var(--green);font-size:.91rem;margin-top:3px}.example-zh{margin-top:5px}.breakdown{margin-top:12px;padding:11px 13px;background:#f7f8f3;border-radius:14px;color:#5e695e;font-size:.85rem;line-height:1.55}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.action{border:0;border-radius:16px;padding:13px 10px;font-weight:800}.again{background:#eee7e1;color:#765e52}.known{background:var(--green);color:white}.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:14px}.nav button{border:0;background:transparent;padding:10px;color:var(--muted);font-weight:700}.quiz{color:var(--orange)!important}.footer{text-align:center;color:var(--muted);font-size:.76rem;margin-top:18px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#342721;color:white;padding:10px 16px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    dialog{border:0;border-radius:24px;width:min(560px,calc(100% - 30px));padding:24px;box-shadow:var(--shadow);color:var(--ink)}dialog::backdrop{background:rgba(52,39,33,.45)}.quiz-q{font-size:1.7rem;font-weight:800;text-align:center;margin:18px}.choices{display:grid;gap:9px}.choice{border:1px solid var(--line);background:white;border-radius:14px;padding:12px;text-align:left}.choice.correct{background:#e7f4eb;border-color:#70a986}.choice.wrong{background:#fff0ec;border-color:#e38770}.close{float:right;border:0;background:#eee7e1;border-radius:50%;width:34px;height:34px}@media(max-width:440px){.app{padding-top:18px}.card{padding:25px 18px 20px;min-height:380px}.subtitle{max-width:260px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="top"><div><div class="eyebrow">THAI FOR TRAVEL</div><h1 class="title">เที่ยวไทย 🇹🇭</h1><p class="subtitle">每天幾張，讓旅行時真的說得出口。</p></div><div class="streak">連續學習<b id="streak">1 天 🔥</b></div></header>
+    <div class="progress-line"><i id="bar"></i></div><div class="meta"><span id="count"></span><span id="learned"></span></div>
+    <nav class="chips" id="chips" aria-label="主題分類"></nav>
+    <section class="card" id="card" tabindex="0" aria-label="點擊展開例句">
+      <span class="category" id="category"></span><div class="thai" id="thai"></div><div class="roman" id="roman"></div><div class="meaning" id="meaning"></div>
+      <div class="audio-row"><button class="audio" id="wordAudio">🔊 單字</button><button class="audio" id="sentenceAudio">🔊 例句</button></div><p class="hint">點卡片查看例句與拆解</p>
+      <div class="detail"><div class="example-thai" id="exampleThai"></div><div class="example-roman" id="exampleRoman"></div><div class="example-zh" id="exampleZh"></div><div class="breakdown" id="breakdown"></div></div>
+    </section>
+    <div class="actions"><button class="action again" id="again">再練一次</button><button class="action known" id="known">我會了 ✓</button></div>
+    <div class="nav"><button id="prev">← 上一張</button><button class="quiz" id="quizBtn">小測驗 ✦</button><button id="next">下一張 →</button></div>
+    <p class="footer">進度只儲存在這台裝置 · 女生句尾使用ค่ะ（kha）</p>
+  </main>
+  <dialog id="quiz"><button class="close" id="closeQuiz">×</button><div class="eyebrow">QUICK QUIZ</div><div class="quiz-q" id="quizQ"></div><div class="choices" id="choices"></div></dialog><div class="toast" id="toast"></div>
+  <script>
+  const cards = [
+    ["基本招呼","สวัสดีค่ะ","sa-wat-dee kha","你好","สวัสดีค่ะ ยินดีที่ได้รู้จัก","sa-wat-dee kha, yin-dee thee dai roo-jak","你好，很高興認識你","สวัสดี＝你好｜ค่ะ＝女性禮貌語尾｜ยินดี＝高興｜รู้จัก＝認識"],
+    ["基本招呼","ขอบคุณค่ะ","khop-khun kha","謝謝","ขอบคุณมากค่ะ","khop-khun mak kha","非常謝謝","ขอบคุณ＝謝謝｜มาก＝很、非常｜ค่ะ＝女性禮貌語尾"],
+    ["基本招呼","ขอโทษค่ะ","kho-thot kha","對不起／不好意思","ขอโทษค่ะ ขอถามหน่อย","kho-thot kha, kho tham noi","不好意思，想請問一下","ขอโทษ＝抱歉｜ขอ＝請求｜ถาม＝問｜หน่อย＝一下"],
+    ["基本招呼","ไม่เป็นไรค่ะ","mai pen rai kha","沒關係","ไม่เป็นไรค่ะ ขอบคุณ","mai pen rai kha, khop-khun","沒關係，謝謝","ไม่＝不｜เป็นไร＝有事／要緊｜ค่ะ＝女性禮貌語尾"],
+    ["基本招呼","พูดภาษาอังกฤษได้ไหมคะ","phut phasa angkrit dai mai kha","會說英文嗎？","คุณพูดภาษาอังกฤษได้ไหมคะ","khun phut phasa angkrit dai mai kha","你會說英文嗎？","คุณ＝你｜พูด＝說｜ภาษาอังกฤษ＝英文｜ได้ไหม＝可以嗎"],
+    ["問路交通","ไปที่นี่ค่ะ","pai thee nee kha","去這裡","ช่วยไปที่นี่ค่ะ","chuai pai thee nee kha","麻煩去這裡","ช่วย＝請幫忙｜ไป＝去｜ที่นี่＝這裡"],
+    ["問路交通","ไปสนามบินค่ะ","pai sanam-bin kha","去機場","ไปสนามบินสุวรรณภูมิค่ะ","pai sanam-bin su-wan-na-phum kha","去素萬那普機場","ไป＝去｜สนามบิน＝機場｜สุวรรณภูมิ＝素萬那普"],
+    ["問路交通","จอดตรงนี้ค่ะ","jot trong nee kha","在這裡停","จอดตรงนี้ได้ไหมคะ","jot trong nee dai mai kha","可以停在這裡嗎？","จอด＝停車｜ตรงนี้＝這裡｜ได้ไหม＝可以嗎"],
+    ["問路交通","เลี้ยวซ้ายค่ะ","liao sai kha","左轉","ข้างหน้าเลี้ยวซ้ายค่ะ","khang-na liao sai kha","前面左轉","ข้างหน้า＝前面｜เลี้ยว＝轉｜ซ้าย＝左"],
+    ["問路交通","เลี้ยวขวาค่ะ","liao khwa kha","右轉","ไฟแดงเลี้ยวขวาค่ะ","fai-daeng liao khwa kha","紅綠燈右轉","ไฟแดง＝紅綠燈｜เลี้ยว＝轉｜ขวา＝右"],
+    ["問路交通","ไปไกลไหมคะ","pai klai mai kha","很遠嗎？","จากที่นี่ไปไกลไหมคะ","jak thee nee pai klai mai kha","從這裡去很遠嗎？","จาก＝從｜ที่นี่＝這裡｜ไกล＝遠｜ไหม＝嗎"],
+    ["問路交通","ใช้เวลากี่นาทีคะ","chai wela kee nathee kha","要幾分鐘？","ไปโรงแรมใช้เวลากี่นาทีคะ","pai rong-raem chai wela kee nathee kha","去飯店要幾分鐘？","ใช้เวลา＝花時間｜กี่＝幾｜นาที＝分鐘"],
+    ["問路交通","ห้องน้ำอยู่ที่ไหนคะ","hong-nam yoo thee nai kha","洗手間在哪裡？","ขอโทษค่ะ ห้องน้ำอยู่ที่ไหนคะ","kho-thot kha, hong-nam yoo thee nai kha","不好意思，洗手間在哪裡？","ห้องน้ำ＝洗手間｜อยู่＝在｜ที่ไหน＝哪裡"],
+    ["飯店","มีห้องว่างไหมคะ","mee hong wang mai kha","有空房嗎？","คืนนี้มีห้องว่างไหมคะ","khuen nee mee hong wang mai kha","今晚有空房嗎？","คืนนี้＝今晚｜มี＝有｜ห้องว่าง＝空房"],
+    ["飯店","ฉันจองห้องไว้แล้วค่ะ","chan jong hong wai laeo kha","我已經訂房了","ฉันจองห้องไว้สองคืนค่ะ","chan jong hong wai song khuen kha","我訂了兩晚","ฉัน＝我（女）｜จอง＝預訂｜สองคืน＝兩晚｜แล้ว＝已經"],
+    ["飯店","เช็กอินได้กี่โมงคะ","check-in dai kee mong kha","幾點可以入住？","วันนี้เช็กอินได้กี่โมงคะ","wan-nee check-in dai kee mong kha","今天幾點可以入住？","วันนี้＝今天｜ได้＝可以｜กี่โมง＝幾點"],
+    ["飯店","ขอฝากกระเป๋าได้ไหมคะ","kho fak kra-pao dai mai kha","可以寄放行李嗎？","ขอฝากกระเป๋าก่อนเช็กอินได้ไหมคะ","kho fak kra-pao kon check-in dai mai kha","入住前可以寄放行李嗎？","ฝาก＝寄放｜กระเป๋า＝行李／包｜ก่อน＝之前"],
+    ["飯店","แอร์ไม่เย็นค่ะ","air mai yen kha","冷氣不冷","ช่วยดูให้หน่อยค่ะ แอร์ไม่เย็น","chuai doo hai noi kha, air mai yen","麻煩看一下，冷氣不冷","ช่วย＝請幫忙｜ดู＝查看｜แอร์＝冷氣｜ไม่เย็น＝不冷"],
+    ["餐廳","ขอเมนูหน่อยค่ะ","kho menu noi kha","請給我菜單","ขอเมนูภาษาอังกฤษหน่อยค่ะ","kho menu phasa angkrit noi kha","請給我英文菜單","ขอ＝請給｜เมนู＝菜單｜ภาษาอังกฤษ＝英文｜หน่อย＝一下"],
+    ["餐廳","เอาอันนี้ค่ะ","ao an nee kha","我要這個","เอาอันนี้หนึ่งที่ค่ะ","ao an nee nueng thee kha","這個請給我一份","เอา＝要｜อันนี้＝這個｜หนึ่ง＝一｜ที่＝份"],
+    ["餐廳","ไม่เผ็ดค่ะ","mai phet kha","不要辣","ไม่เผ็ดเลยนะคะ","mai phet loei na kha","完全不要辣喔","ไม่＝不｜เผ็ด＝辣｜เลย＝完全｜นะคะ＝柔和語氣"],
+    ["餐廳","เผ็ดนิดหน่อยค่ะ","phet nit noi kha","一點點辣","ขอเผ็ดนิดหน่อยค่ะ","kho phet nit noi kha","請做一點點辣","ขอ＝請｜เผ็ด＝辣｜นิดหน่อย＝一點點"],
+    ["餐廳","ไม่ใส่เนื้อสัตว์ค่ะ","mai sai nuea-sat kha","不要放肉","เมนูนี้ไม่ใส่เนื้อสัตว์ใช่ไหมคะ","menu nee mai sai nuea-sat chai mai kha","這道菜沒有放肉，對嗎？","ไม่ใส่＝不放｜เนื้อสัตว์＝肉類｜ใช่ไหม＝是嗎"],
+    ["餐廳","อร่อยมากค่ะ","a-roi mak kha","非常好吃","อาหารไทยอร่อยมากค่ะ","ahan thai a-roi mak kha","泰國菜非常好吃","อาหารไทย＝泰國菜｜อร่อย＝好吃｜มาก＝非常"],
+    ["餐廳","เช็กบิลด้วยค่ะ","check bin duai kha","麻煩結帳","ขอโทษค่ะ เช็กบิลด้วยค่ะ","kho-thot kha, check bin duai kha","不好意思，麻煩結帳","เช็กบิล＝結帳｜ด้วย＝也／麻煩"],
+    ["購物","อันนี้ราคาเท่าไหร่คะ","an nee rakha thao-rai kha","這個多少錢？","กระเป๋าใบนี้ราคาเท่าไหร่คะ","kra-pao bai nee rakha thao-rai kha","這個包包多少錢？","อันนี้＝這個｜ราคา＝價格｜เท่าไหร่＝多少"],
+    ["購物","ลดได้ไหมคะ","lot dai mai kha","可以便宜一點嗎？","ซื้อสองอัน ลดได้ไหมคะ","sue song an, lot dai mai kha","買兩個可以便宜一點嗎？","ซื้อ＝買｜สองอัน＝兩個｜ลด＝降價｜ได้ไหม＝可以嗎"],
+    ["購物","ลองได้ไหมคะ","long dai mai kha","可以試嗎？","รองเท้าคู่นี้ลองได้ไหมคะ","rong-thao khoo nee long dai mai kha","這雙鞋可以試穿嗎？","รองเท้า＝鞋｜คู่นี้＝這雙｜ลอง＝試"],
+    ["購物","มีไซซ์เล็กกว่านี้ไหมคะ","mee size lek kwa nee mai kha","有小一點的尺寸嗎？","มีไซซ์ใหญ่กว่านี้ไหมคะ","mee size yai kwa nee mai kha","有大一點的尺寸嗎？","มี＝有｜ไซซ์＝尺寸｜เล็กกว่า＝更小｜ใหญ่กว่า＝更大"],
+    ["購物","จ่ายด้วยบัตรได้ไหมคะ","jai duai bat dai mai kha","可以刷卡嗎？","ที่นี่จ่ายด้วยบัตรได้ไหมคะ","thee nee jai duai bat dai mai kha","這裡可以刷卡嗎？","จ่าย＝付款｜ด้วยบัตร＝用卡｜ได้ไหม＝可以嗎"],
+    ["數字時間","หนึ่ง สอง สาม","nueng, song, sam","一、二、三","ขอสามอันค่ะ","kho sam an kha","請給我三個","หนึ่ง＝一｜สอง＝二｜สาม＝三｜อัน＝個"],
+    ["數字時間","ตอนนี้กี่โมงคะ","ton-nee kee mong kha","現在幾點？","ตอนนี้กี่โมงแล้วคะ","ton-nee kee mong laeo kha","現在已經幾點了？","ตอนนี้＝現在｜กี่โมง＝幾點｜แล้ว＝已經"],
+    ["數字時間","เปิดกี่โมงคะ","poet kee mong kha","幾點開門？","ร้านเปิดกี่โมงคะ","ran poet kee mong kha","店幾點開門？","ร้าน＝店｜เปิด＝開門｜กี่โมง＝幾點"],
+    ["緊急狀況","ช่วยด้วยค่ะ","chuai duai kha","請幫幫我！","ช่วยด้วยค่ะ ฉันหลงทาง","chuai duai kha, chan long-thang","請幫幫我，我迷路了","ช่วยด้วย＝救命／請幫忙｜ฉัน＝我｜หลงทาง＝迷路"],
+    ["緊急狀況","ฉันไม่สบายค่ะ","chan mai sabai kha","我不舒服","ฉันไม่สบาย ปวดหัวค่ะ","chan mai sabai, puat hua kha","我不舒服，頭痛","ไม่สบาย＝不舒服｜ปวดหัว＝頭痛"],
+    ["緊急狀況","โรงพยาบาลอยู่ที่ไหนคะ","rong-pha-ya-ban yoo thee nai kha","醫院在哪裡？","โรงพยาบาลที่ใกล้ที่สุดอยู่ที่ไหนคะ","rong-pha-ya-ban thee klai thee-sut yoo thee nai kha","最近的醫院在哪裡？","โรงพยาบาล＝醫院｜ใกล้ที่สุด＝最近｜ที่ไหน＝哪裡"],
+    ["緊急狀況","โทรหาตำรวจให้หน่อยค่ะ","tho ha tamruat hai noi kha","請幫我報警","ช่วยโทรหาตำรวจให้หน่อยค่ะ","chuai tho ha tamruat hai noi kha","請幫我打電話報警","โทรหา＝打電話給｜ตำรวจ＝警察｜ให้หน่อย＝請幫忙"],
+    ["緊急狀況","ฉันทำโทรศัพท์หายค่ะ","chan tham thorasap hai kha","我的手機不見了","ฉันทำโทรศัพท์หาย ช่วยด้วยค่ะ","chan tham thorasap hai, chuai duai kha","我的手機不見了，請幫幫我","ทำ…หาย＝弄丟｜โทรศัพท์＝手機｜ช่วยด้วย＝請幫忙"]
+  ];
+  const $=s=>document.querySelector(s), state={filter:"全部",i:+localStorage.thidx||0,learned:new Set(JSON.parse(localStorage.thlearned||"[]"))};
+  const cats=["全部",...new Set(cards.map(c=>c[0]))]; const visible=()=>cards.map((c,i)=>({c,i})).filter(x=>state.filter==="全部"||x.c[0]===state.filter);
+  function renderChips(){ $("#chips").innerHTML=cats.map(c=>`<button class="chip ${c===state.filter?'on':''}" data-cat="${c}">${c}</button>`).join(""); }
+  function render(){const list=visible();if(state.i>=list.length)state.i=0;const {c,i}=list[state.i];[["category",0],["thai",1],["roman",2],["meaning",3],["exampleThai",4],["exampleRoman",5],["exampleZh",6],["breakdown",7]].forEach(([id,n])=>$("#"+id).textContent=c[n]);$("#card").classList.remove("open");$("#count").textContent=`${state.i+1} / ${list.length}`;$("#learned").textContent=`已學會 ${state.learned.size} 張`;$("#bar").style.width=`${state.learned.size/cards.length*100}%`;$("#known").textContent=state.learned.has(i)?"已學會 ✓":"我會了 ✓";localStorage.thidx=state.i;renderChips()}
+  function move(n){const l=visible().length;state.i=(state.i+n+l)%l;render()} function speak(text){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="th-TH";u.rate=.78;const v=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith("th"));if(v)u.voice=v;speechSynthesis.speak(u)}
+  function toast(t){$("#toast").textContent=t;$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),1200)}
+  $("#chips").onclick=e=>{if(!e.target.dataset.cat)return;state.filter=e.target.dataset.cat;state.i=0;render()};$("#card").onclick=e=>{if(!e.target.closest("button"))$("#card").classList.toggle("open")};$("#wordAudio").onclick=e=>{e.stopPropagation();speak(visible()[state.i].c[1])};$("#sentenceAudio").onclick=e=>{e.stopPropagation();speak(visible()[state.i].c[4])};$("#prev").onclick=()=>move(-1);$("#next").onclick=()=>move(1);$("#again").onclick=()=>{state.learned.delete(visible()[state.i].i);save();move(1)};$("#known").onclick=()=>{state.learned.add(visible()[state.i].i);save();toast("เก่งมาก！學會一張了");move(1)};
+  function save(){localStorage.thlearned=JSON.stringify([...state.learned])} function quiz(){const target=cards[Math.floor(Math.random()*cards.length)];let opts=[target,...cards.filter(x=>x!==target).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);$("#quizQ").textContent=target[1];$("#choices").innerHTML=opts.map(o=>`<button class="choice" data-ok="${o===target}">${o[3]}</button>`).join("");$("#quiz").showModal()}$("#quizBtn").onclick=quiz;$("#closeQuiz").onclick=()=>$("#quiz").close();$("#choices").onclick=e=>{if(!e.target.classList.contains("choice"))return;e.target.classList.add(e.target.dataset.ok==="true"?"correct":"wrong");if(e.target.dataset.ok!=="true") [...$("#choices").children].find(x=>x.dataset.ok==="true").classList.add("correct");setTimeout(quiz,900)};
+  document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")move(1);if(e.key==="ArrowLeft")move(-1)});let today=new Date().toDateString(),last=localStorage.thlast,streak=+localStorage.thstreak||1;if(last&&last!==today){let d=(new Date(today)-new Date(last))/864e5;streak=d===1?streak+1:1}localStorage.thlast=today;localStorage.thstreak=streak;$("#streak").textContent=streak+" 天 🔥";render();
+  </script>
+</body>
+</html>
